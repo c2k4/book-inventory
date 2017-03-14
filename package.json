@@ -1,0 +1,25 @@
+{
+  "name": "book-inventory",
+  "version": "1.0.0",
+  "description": "Ludzki opis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha",
+    "test:xunit": "npm run test -- --reporter xunit",
+    "lint": "jshint --exclude=node_modules/** ."
+  },
+  "author": "TPorosinski",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.24"
+  },
+  "devDependencies": {
+    "heroin-js": "^1.16.2",
+    "jshint": "^2.9.4",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
+}
