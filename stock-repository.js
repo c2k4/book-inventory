@@ -1,7 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 
-var url = process.env.MONGODB_URI || 'mongodb://localhost:27017/myproject';
-
+var url = process.env.MONGODB_URI || 'mongodb://localhost:27017/book-inventory';
 var collection = MongoClient.connect(url, { bufferMaxEntries: 0 }).then(function(db) {
     return db.collection('books');
 }).catch(function(err) {

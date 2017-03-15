@@ -17,7 +17,26 @@ module.exports = function(stockRepo)
             // return to improve testability (unit tests)
             return stockRepo.findOne(req.params.isbn).then(function(result) {
                 if (result != null) {
-                    res.json({count: result.count});
+
+                    res.format({
+                        'text/plain': function(){
+                            res.send(result.count);
+                        },
+
+                        'text/html': function(){
+                            res.send('<p>Copies left: ' + result.count + '</p>');
+                        },
+
+                        'application/json': function(){
+                            res.json({count: result.count});
+                        },
+
+                        'default': function() {
+                            // log the request and respond with 406
+                            res.status(406).send('Not Acceptable');
+                        }
+                    });
+
                 }
                 else next();
             }).catch(next);
